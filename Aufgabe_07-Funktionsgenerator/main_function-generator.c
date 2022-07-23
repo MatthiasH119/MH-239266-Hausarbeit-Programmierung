@@ -58,7 +58,7 @@ int main(int argc,char *argv[])
     //Programmaufruf
     if (option_switch == 0) {
     	printf("\n... starting application ...\n");
-        outstream = fopen("outstram.txt", "w");
+        outstream = fopen("outstream.txt", "w");
 
 	static_function_generator(outstream);
         
