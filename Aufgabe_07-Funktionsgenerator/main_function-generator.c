@@ -13,18 +13,21 @@
 #include "header_help-catalogue.h"
 #include <static_function-generator.h>
 
-char version[]="V00.1";
+char version[]="V01.1";
 
 int main(int argc,char *argv[])
 {
     char *vvalue = NULL;
     int option;
     int option_switch = 0;
+    int amount_of_values = 100;
+    float x_step = 0.1;
     opterr = 0;
 
-    FILE * outstream;
+    FILE * outstream_x;
+    FILE * outstream_y;
 
-    while ((option = getopt(argc, argv, "hv")) != -1)
+    while ((option = getopt(argc, argv, "hn:v")) != -1)
         switch (option)
         {
         //void print_gaussian_dist ( float expected_value, float std_deviation , int amount_of_values, FILE ∗ output_stream)
@@ -33,6 +36,14 @@ int main(int argc,char *argv[])
             header_help_catalogue();
             option_switch++;
 	    break;
+	case 'n':
+	    amount_of_values = atoi(optarg);
+	    if (amount_of_values < 100)
+	        {
+		printf("%i values are not enough, amount set to 100.\n", amount_of_values);
+		amount_of_values = 100;
+		}
+            break;
         // -v Version
         case 'v':
             printf("%s \n", version);
@@ -43,6 +54,10 @@ int main(int argc,char *argv[])
             if (isprint (optopt))//is character printable
             {
                 fprintf (stderr, "Unknown option `-%c'.\n", optopt);
+            }
+	    else if (optopt == 'n')
+            {
+                fprintf (stderr, "There are rules! -%c requires an argument! \n", optopt);
             }
             else
             {
@@ -55,14 +70,18 @@ int main(int argc,char *argv[])
         }
 
 
-    //Programmaufruf
+    //start program
     if (option_switch == 0) {
-    	printf("\n... starting application ...\n");
-        outstream = fopen("outstream.txt", "w");
-
-	static_function_generator(outstream);
+	#ifdef DEBUG
+	printf("//DEBUG: starting application\n");
+	#endif
+	outstream_x = fopen("outstream_x.txt", "w");
+	outstream_y = fopen("outstream_y.txt", "w");
+	
+	static_function_generator(amount_of_values, x_step, outstream_x, outstream_y);
         
-	fclose(outstream);
+	fclose(outstream_x);
+	fclose(outstream_y);
     }
 
     return 0;
