@@ -13,7 +13,8 @@ printf("\n");
     printf("\n");
 
     printf("additional commands: \n");
-    printf("-n to increase amount of values, default: 100");
+    printf("-n [int] to set the amount of values, default: 100 \n");
+    printf("-r [int] to set the resolution of the sawblade function, default: 20");
 
     printf("\n");
     printf("=====================================================================================");
