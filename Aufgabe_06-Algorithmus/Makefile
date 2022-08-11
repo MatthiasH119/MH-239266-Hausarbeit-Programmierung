@@ -4,3 +4,6 @@ generiere_neue_zahlenreihe:
 
 compiliere_algorithmus:
 	gcc -o main_algorithmus.elf main_algorithmus.c
+
+DEBUG_compiliere_algorithmus:
+	gcc -o main_algorithmus.elf main_algorithmus.c -DDEBUG
