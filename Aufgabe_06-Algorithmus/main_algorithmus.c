@@ -56,7 +56,7 @@ int main()
 	{
 	    printf("IF-SCHLEIFE \n");
 	    int x = 0;
-	    for(int j=1; x<1; j++)
+	    for(int j=1; x=0; j++)
 	    {
     	        printf("FOR-SCHLEIFE\n");
 	        #ifdef DEBUG
@@ -79,7 +79,7 @@ int main()
 
     printf("Die längste Reihe von Primzahlen in der Zahlenreihe ist %i Primzahlen lang.\n", max);
     printf("Die Zahlen lauten: ");
-    for(stelle_max; stelle_max + max; stelle_max++)
+    for(stelle_max; stelle_max < stelle_max + max; stelle_max++)
     {
 	printf("%i, ", zahlenreihe[stelle_max]);
     }
