@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char version[]="V0.3";
+char version[]="V0.4";
 int primzahlsieb[]={2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199};
 
 int primzahl_pruefung(int zahl)
@@ -77,10 +77,9 @@ int main()
     printf("Die längste Reihe von Primzahlen in der Zahlenreihe ist %i Primzahlen lang.\n", max);
     printf("Die Zahlen lauten: ");
 	
-    int temp_summe = stelle_max + max;
-    for(stelle_max; stelle_max < temp_summe; stelle_max++)
+    for(int i=stelle_max; i < stelle_max+max; i++)
     {
-	printf("%i, ", zahlenreihe[stelle_max]);
+	printf("%i, ", zahlenreihe[i]);
     }
     printf("\n");
 
