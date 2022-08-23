@@ -7,10 +7,9 @@
 #include <time.h>
 
 #define MAX 200
-#define SIZE 100
 #define NUMS_TO_GENERATE 200
 
-//Version: V0.1
+//Version: V0.2
 
 int main() {
 
