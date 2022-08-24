@@ -8,13 +8,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 100      //Höchste Zahl im Instream
-#define ANZAHL  2000  //Anzahl Zahlen im Instream
+#define MAX 200      //Höchste Zahl im Instream
+#define ANZAHL  200  //Anzahl Zahlen im Instream
 
-char version[]="V0.6";
+char version[]="V0.7";
 
 int primzahlsieb[MAX];
 
+//Funktion zum erstllen des Primzahlsiebes nach Eratosthenes
 void primzahlsieb_erstellung()
 {
   int primzahlsieb_zähler = 0;
@@ -53,12 +54,13 @@ void primzahlsieb_erstellung()
   #endif
 }
 
+//Funktion zum prüfen, ob eine Zahl eine Primzahl ist
 int primzahl_pruefung(int zahl)
 {
     #ifdef DEBUG
     printf("\x1b[34m//DEBUG-PRIMZAHL-PRÜFUNG: zahl: %i\x1b[0m", zahl);
     #endif
-    for (int i=0; i<46; i++)
+    for (int i=0; i<MAX; i++)
     {
 	if (primzahlsieb[i] == zahl)
 	{
@@ -67,6 +69,8 @@ int primzahl_pruefung(int zahl)
 		#endif
 		return 1;
 	}
+	else if (primzahlsieb[i] == -1)
+		break;
     }
     #ifdef DEBUG
     printf("\t\x1b[34m//DEBUG-PRIMZAHL-PRÜFUNG: \x1b[31mreturn 0 \x1b[0m\n");
