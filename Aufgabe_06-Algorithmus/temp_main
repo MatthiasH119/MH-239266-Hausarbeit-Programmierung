@@ -13,12 +13,12 @@
 
 char version[]="V0.7";
 
-int primzahlsieb[MAX];
+int primzahlliste[MAX];
 
-//Funktion zum erstllen des Primzahlsiebes nach Eratosthenes
-void primzahlsieb_erstellung()
+//Funktion zum erstllen der Primzahlliste
+void primzahlliste_erstellung()
 {
-  int primzahlsieb_zähler = 0;
+  int primzahlliste_zähler = 0;
   for (int i=2; i<MAX; i++)
     {
       char prüfstempel = 't';
@@ -32,17 +32,17 @@ void primzahlsieb_erstellung()
         }
       if (prüfstempel == 't')
         {
-          primzahlsieb[primzahlsieb_zähler] = i;
-          primzahlsieb_zähler++;
+          primzahlliste[primzahlliste_zähler] = i;
+          primzahlliste_zähler++;
         }
     }
   for (int i=0; i<MAX; i++)
   {
-    if (primzahlsieb[i] == 0)
-      primzahlsieb[i] = -1;
+    if (primzahlliste[i] == 0)
+      primzahlliste[i] = -1;
   }
   #ifdef DEBUG
-  printf("Primzahlsieb: {");
+  printf("Primzahlliste: {");
   for (int i; i<MAX; i++)
   {
     if (primzahlsieb[i] != 0)
@@ -80,7 +80,7 @@ int primzahl_pruefung(int zahl)
 
 int main()
 {
-    primzahlsieb_erstellung();
+    primzahlliste_erstellung();
     FILE * in_zahlenreihe;
     in_zahlenreihe = fopen("zahlenreihe.txt", "r");
 
